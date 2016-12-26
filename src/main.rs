@@ -1,4 +1,6 @@
 mod page;
+//mod crawl;
+
 extern crate clap;
 extern crate hyper;
 extern crate scraper;
@@ -8,6 +10,7 @@ use std::str;
 use clap::{Arg, App};
 use url::{Url};
 use page::Page;
+//use crawl::Crawl;
 
 fn main() {
     let matches = App::new("Link Checker")
@@ -26,5 +29,5 @@ fn main() {
     let a_url = Url::parse(url).unwrap();
     let my_page = Page::new(a_url);
     println!("title: {}", my_page.title());
-    my_page.linked_urls()
+    my_page.print_report();
 }
